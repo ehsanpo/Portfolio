@@ -1,0 +1,20 @@
+import boto3
+from botocore.client import config
+import StringIO
+import zipfile
+import mimetypes
+
+s3 = boto3.resource('s3')
+
+site_bucket= s3.Bucket('ehsan-pourhadi.com')
+build_bucket= s3.Bucket('pip-ehsan-pourhadi.com')
+
+site_zip = StringIO.StringIO()
+build_bucket.download_filesobj('portfoliobuild.zip', site.zip)
+
+with zipfile.Zipfile(site.zip) as myzip
+	for nm in myzip.nameist()
+		obj= myzip.open(nm)
+		site_bucket.upload_fileobj(obj,nm,
+			ExtraArgs = {'contentType: mimetypes.guss_type(nm)[0]'})
+		site_bucket.Object(nm).Acl().put(ACL='public-read')
