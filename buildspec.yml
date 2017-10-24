@@ -5,6 +5,6 @@ phases:
         commands:
           - echo Noting yet
 
-artifacs:
+artifacts:
   files:
     index.html 
