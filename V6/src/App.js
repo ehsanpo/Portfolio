@@ -2,40 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, NavLink} from 'react-router-dom'
 
 import all_clients from './Clients'
+import chart_data from './About-data';
+
 import logo from './logo.svg';
 import './App.css';
 
+import {Radar} from 'react-chartjs-2';
 
-//const anime = require('./lib/anime.min.js');
-//const thisLib = require('./lib/main.js');
-
-
-
-// import { anime } from './lib/anime.min.js';
-// import { YourFile3 } from './lib/main.js';
-
-/*
-
-var scrollElemToWatch_1 = document.getElementById('rev-3'),
-          watcher_1 = scrollMonitor.create(scrollElemToWatch_1, -300),        
-          rev3 = new RevealFx(scrollElemToWatch_1, {
-            revealSettings : {
-              bgcolor: '#fcf652',
-              direction: 'rl',
-              onCover: function(contentEl, revealerEl) {
-                contentEl.style.opacity = 1;
-              }
-            }
-          });
-
-          watcher_1.enterViewport(function() {
-          rev3.reveal();
-        
-
-          watcher_1.destroy();
-        });
-
-*/
 
 class App extends Component {
   render() {
@@ -45,12 +18,13 @@ class App extends Component {
          <HeaderComp />
          <div className="wrapper">
           <Switch>
-            <Route exact path="/" component={ About} />
-            <Route path="/contact" component={Contact } />
-            <Route path="/work/:slug" component={Project} />
+            <Route path="/contact" component={ Contact } />
+            <Route path="/work/:slug" component={ Project} />
             <Route path="/work" component={ ProjectList } />
             <Route path="/music" component={  MusicList } />
-            <Route component={NotFound} />
+            <Route path="/skills" component={  SkillList } />
+            <Route ecxat path="/" component={ About} />
+            <Route component={ NotFound } />
           </Switch>
           </div>
         </div>
@@ -71,14 +45,18 @@ const  HeaderComp = () => (
                 <nav>
                     <ul>
                         <li>
-                          <NavLink to="/">About</NavLink>
+                          <NavLink exact to="/">About</NavLink>
                         </li>
                         <li>
                          <NavLink to="/work">Work</NavLink>
                         </li>
+                         <li>
+                         <NavLink to="/skills">Skills</NavLink>
+                        </li>
                         <li>
                          <NavLink to="/music">Music</NavLink>
                         </li>
+                       
                     </ul>
                 </nav>
             </header>
@@ -92,17 +70,30 @@ const  About  = () => (
                             I specialize in web development, LAMP/LNMP Stacks and Wordpress, Drupal, Laravel. In addition, I have extensive knowledge in user interface design, logo/identity production as well as search engine optimization. Furthermore, I also have an immense knowledge within multimedia and mobile development alongside a few other technical skills.<br /><br />
 
                             I’m always in the search for different concepts, platforms and techniques that I can utilize in order to obtain a much richer and innovative multimedia experience.
-                            <Certification/>
                           
+                        
+
+                            <AwardList />
+
                         </div>
   )   
 
-const  Codelist  = () => (
+
+const SkillList   = () => (
             <div>
-                 
-            Code list
+            <Certification />
+            <div className="col2">
+              
+              <Radar data={chart_data.dataFE}  options={chart_data.dataOptions }/>
+              <Radar data={chart_data.dataDesign}  options={chart_data.dataOptions }/>
+              <Radar data={chart_data.dataBE}  options={chart_data.dataOptions }/>
+              <Radar data={chart_data.dataDevop}  options={chart_data.dataOptions }/>
+              
             </div>
+             
+             </div>
   )
+
 
 
 const  ProjectList  = () => (
@@ -110,8 +101,7 @@ const  ProjectList  = () => (
                   <ul>
                     { Object.keys(all_clients).map((k, index) => (
                      <li>
-                           <Project slug={all_clients[k].slug} posetion={index}/>
-   
+                        <Project slug={all_clients[k].slug} posetion={index}/>
                      </li>
                      )
 
@@ -121,6 +111,142 @@ const  ProjectList  = () => (
             </div>
   )
 
+
+const  MusicList  = () => (
+             <div>
+                <iframe width="100%" height="600" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/62694&amp;color=%23fe3048&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
+            </div>
+  )
+
+
+const  Contact  = () => (
+             <div>
+               <h1>Contact</h1>
+            </div>
+  )
+
+class Award  extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isToggleOn: false,
+      isFirst:false,
+      rev: false,
+    };
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+
+  }
+
+ componentDidMount() {
+  let node;
+  let i = 0;
+
+          for (var ref in this.refs) {
+
+            i++
+
+            node = this.refs[ref];
+
+            this.revealFx(node,i,false);
+            
+          }
+
+ }
+  revealFx (el, i,reveal) {
+    console.log('ev')
+        let rev =[];
+        let direction = 'tb';
+        rev[i] = new window.RevealFx(el, {
+              revealSettings : {
+                bgcolor: "#FE3048",
+                direction: direction,
+                duration: 180,
+                onCover: function(contentEl, revealerEl) {
+                  contentEl.style.opacity = 1;
+
+                }
+              }
+            });
+        if (reveal) {
+          rev[i].reveal();
+          this.setState({rev:rev[i]}) 
+        }
+        else{
+          this.setState({rev:rev[i]})  ;
+        }
+
+      
+    }
+
+
+  handleClick(){
+   const rev = this.state.rev;
+   const isToggleOn = this.state.isToggleOn;
+ 
+          !isToggleOn && rev.reveal();
+          isToggleOn && rev.reveal({
+
+                bgcolor: '#FE3048',
+                direction: "bt",
+                duration: 180,
+                onCover: function(contentEl, revealerEl) {
+                  contentEl.style.opacity = 0;
+
+                }
+                
+              }
+
+            );
+  
+
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+
+
+ 
+
+  }
+
+  render(){
+
+    return(
+            <div >
+               <img  onClick={this.handleClick } src={this.props.imgsrc} />
+                <h3  onClick={this.handleClick }> {this.props.text}</h3>
+                <div ref="image"  className={ this.state.isToggleOn ? 'desc-ON' : 'desc-OFF'}>
+                  {this.props.desc}
+                </div>
+
+            </div>
+
+      )
+  }
+
+  }
+
+const  AwardList  = () => (
+            <div className="col4 awardlist">
+              <Award imgsrc="/img/guldagg.png"  text="Guldägget" desc={<p>Gold Category PR<br />Silver Category Digital<br/>Silver Category Alternative Media</p>}/>
+              <Award imgsrc="/img/cannen.png"  text="Cannes lions" desc={<p>Silver Lion in Promo &amp; Activation<br/>Bronze Lion in Cyber <br/>Shortlist in Media</p>}/>
+              <Award imgsrc="/img/svenskadesign.png"  text="Svenska Designpriset " desc={<p>Gold Category Digital Design</p>}/>
+              <Award imgsrc="/img/award.png"  text="Other Awards" desc={<p>
+              Epica Awards : Bronze in PR<br />
+              Tomorrow Awards: 1 Shortlist<br />
+              Eurobest 13: Bronze in Interactive<br />
+              Spinn 13: Gold Consumer Campaign<br />
+              100 Wattaren: Gold (100w) under "SMART" category
+            </p>
+          }/>
+            </div>
+  )
+const Certification = () =>(
+  <div className="center">
+    <img src="/img/cert.png"  alt="AWS Certified Solutions Architect - Associate" width="100" />
+    </div>
+  )
 
 class Project  extends React.Component {
   constructor(props) {
@@ -163,10 +289,10 @@ class Project  extends React.Component {
           let that = this;
           let node;
           let i = 0;
-          for (var ref in this.refs) {
+          for (ref in this.refs) {
             i++
             node = this.refs[ref];
-            if (posetion == "0"  || posetion  == "1" || posetion=="2") {
+            if (posetion === "0"  || posetion  === "1" || posetion==="2") {
               
               this.revealFx(node,i,true);
             }
@@ -201,7 +327,7 @@ class Project  extends React.Component {
     revealFx (el, i,reveal) {
         let rev =[];
         let direction = 'lr';
-        if (i  % 2 == 0) {
+        if (i  % 2 === 0) {
           direction = 'rl';
         }
         rev[i] = new window.RevealFx(el, {
@@ -268,9 +394,15 @@ class Project  extends React.Component {
          
          </div> 
             <div className="p_image">
+           { client.top_video &&
+            <iframe type="text/html" width="640" height="675" src={ "https://www.youtube.com/embed/" +  client.top_video} frameborder="0"></iframe>
+            }
               {client.img.map(function(image, i){
-                return <div ref={"image" + i }  ><img  src={"/img/" +  image} /></div>
+                return <img  src={"/img/" +  image} />
                })}
+            { client.end_video &&
+            <iframe type="text/html" width="640" height="675" src={ "https://www.youtube.com/embed/" +  client.end_video} frameborder="0"></iframe>
+            }
            </div> 
      </div>  
      )
@@ -288,33 +420,6 @@ class Project  extends React.Component {
     
   }
 }
-
-
-
-const  MusicList  = () => (
-             <div>
-                <iframe width="100%" height="600" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/62694&amp;color=%23fe3048&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
-            </div>
-  )
-
-
-const  Contact  = () => (
-             <div>
-               <h1>Contact</h1>
-            </div>
-  )
-
-const  Award  = () => (
-             <div>
-               <h1>Contact</h1>
-            </div>
-  )
-
-const Certification = () =>(
-  <div className="center">
-    <img src="/img/cert.png"  alt="AWS Certified Solutions Architect - Associate" width="100" />
-    </div>
-  )
 
 
 export default App;

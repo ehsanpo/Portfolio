@@ -401,7 +401,7 @@ window.Rellax = Rellax;
 				duration: 500,
 				easing: 'easeInOutQuint',
 				delay: 0,
-				bgcolor: '#f0f0f0',
+				bgcolor: '#000000',
 				direction: 'lr',
 				coverArea: 0
 			},

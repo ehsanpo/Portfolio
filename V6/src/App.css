@@ -31,10 +31,6 @@
   max-width: 100%;
   margin: 0 auto;
   box-sizing: border-box; }
-  @media only screen and (max-width: 768px) {
-    .wrapper-m {
-      padding-right: 16px;
-      padding-left: 16px; } }
 
 /*
   @include bp-large{
@@ -95,9 +91,17 @@ a {
   text-decoration: none;
   color: #FE3048; }
 
+iframe {
+  width: 100%; }
+
 .col2 {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10vh 0; }
+  @media only screen and (max-width: 768px) {
+    .col2 {
+      margin: 5vh 0; } }
   @media only screen and (max-width: 40em) {
     .col2 {
       flex-direction: column; } }
@@ -108,6 +112,25 @@ a {
     width: 50%; }
     @media only screen and (max-width: 40em) {
       .col2 > div {
+        width: 100%; } }
+  .col2 > canvas {
+    max-width: 50%;
+    margin-bottom: 10vh; }
+    @media only screen and (max-width: 40em) {
+      .col2 > canvas {
+        max-width: 100%; } }
+
+.col4 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5vh 0; }
+  @media only screen and (max-width: 768px) {
+    .col4 {
+      margin: 2vh 0; } }
+  .col4 > div {
+    width: 25%; }
+    @media only screen and (max-width: 40em) {
+      .col4 > div {
         width: 100%; } }
 
 h2 {
@@ -139,21 +162,35 @@ header {
     color: #FE3048;
     display: block;
     margin: 0 5px;
-    padding: 0 5px; }
+    padding: 0 10px;
+    transition: 0.35s all cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+    header a.active {
+      color: #fff;
+      background: #FE3048;
+      border-radius: 2px; }
   header .logo {
     width: 60px; }
+
+.awardlist {
+  font-size: 12px;
+  text-align: center;
+  font-family: Poppins;
+  color: #FFF; }
+  .awardlist div {
+    cursor: pointer; }
 
 .project {
   font-family: Inconsolata; }
   .project .p_image img {
-    display: block; }
+    display: block;
+    margin-bottom: 16px; }
   .project img {
     width: 100%; }
   .project .hiddendesc {
     display: none; }
   .project h2 {
     font-size: 4vw;
-    margin: 0;
+    margin: 16px 0;
     line-height: 1; }
     @media only screen and (max-width: 768px) {
       .project h2 {
@@ -173,14 +210,9 @@ header {
 .projectlist li:nth-child(2n) .col2 div:nth-child(2) {
   order: 1; }
 
-.projectlist .project {
-  margin: 15vh 0; }
-  @media only screen and (max-width: 768px) {
-    .projectlist .project {
-      margin: 5vh 0; } }
-  @media only screen and (min-width: 768px) {
-    .projectlist .project .role, .projectlist .project .stack, .projectlist .project h2 {
-      padding: 0 6vw; } }
+@media only screen and (min-width: 768px) {
+  .projectlist .project .role, .projectlist .project .stack, .projectlist .project h2 {
+    padding: 0 6vw; } }
 
 .black {
   background: #000;
