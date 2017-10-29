@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <style>
+      
+
+#loading {
+    background: none repeat scroll 0 0 #FE3048;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+#loading.end {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+#loading-atoms.end {
+    display: none;
+}
+#loading-top, #loading-bottom {
+    background: none repeat scroll 0 0 #FE3048;
+    height: 50%;
+    left: 0;
+    position: fixed;
+    width: 100%;
+}
+#loading-top {
+    border-bottom: 2px solid #222222;
+    top: 0;
+}
+#loading-bottom {
+    border-top: 2px solid #222222;
+    bottom: 0;
+}
+#loading-atoms, .loading-atom, #loading-disc, #loading-circle {
+    left: 50%;
+    position: fixed;
+    top: 50%;
+}
+#loading-atoms {
+    height: 100px;
+    margin: -50px 0 0 -50px;
+    width: 100px;
+    border-radius: 50%;
+
+}
+.loading-atom {
+    border-radius: 10px;
+    height: 20px;
+    left: 0;
+    top: 0;
+    width: 20px;
+}
+#loading-circle, #loading-disc {
+    border-radius: 50%;
+    margin: -53px 0 0 -53px;
+}
+#loading-circle {
+    border: 2px solid #222;
+     height: 106px;
+    width: 106px;
+}
+#loading-disc {
+   background: none repeat scroll 0 0 #222222;
+    height: 106px;
+    width: 106px;
+}
+#loading-wawe {
+    background-image: url("../img/bg3.png");
+    height: 100px;
+    position: absolute;
+    width: 100px;
+}
+#loading-top, #loading-bottom, #loading-atoms, .loading-atom, #loading-circle, #loading-disc {
+    -webkit-animation-duration: 1000ms;
+    animation-duration: 1000ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+}
+#loading-top, #loading-bottom {
+    -webkit-animation-duration: 3000ms;
+    animation-duration: 3000ms;
+    -webkit-animation-name: loading-one;
+    animation-name: loading-one;
+    -webkit-animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+#loading-atoms {
+overflow: hidden;
+}
+#loading-wawe{
+  -webkit-animation:wave-animation 1s infinite linear, loading-animation 5s infinite linear alternate;
+  animation:wave-animation 1s infinite linear, loading-animation 5s infinite linear alternate;
+  background-size:200px 100px;
+  background-repeat:repeat-x;
+  opacity:1;
+}
+
+@-webkit-keyframes wave-animation{
+  0%{background-position:0 bottom}
+  100%{background-position:200px bottom}
+}
+
+@keyframes wave-animation{
+  0%{background-position:0 bottom}
+  100%{background-position:200px bottom}
+}
+@-webkit-keyframes loading-animation{
+  0%{background-size:200px 0px}
+  27%{background-size:200px 0px}
+  100%{background-size:200px 200px}
+}
+@keyframes loading-animation{
+  0%{background-size:200px 0px}
+  27%{background-size:200px 0px}
+  100%{background-size:200px 200px}
+}
+.loading-atom {
+    -webkit-animation-duration: 1250ms;
+    animation-duration: 1250ms;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+#loading-circle {
+    margin: -55px 0 0 -55px;
+    -webkit-animation-duration: 2000ms;
+    animation-duration: 2000ms;
+    -webkit-animation-name: circle;
+    animation-name: circle;
+    -webkit-animation-timing-function: cubic-bezier(0.48, 0, 0, 1);
+    animation-timing-function: cubic-bezier(0.48, 0, 0, 1);
+}
+#loading-disc {
+    -webkit-animation-duration: 2000ms;
+    animation-duration: 2000ms;
+    -webkit-animation-name: disc;
+    animation-name: disc;
+    -webkit-animation-timing-function: cubic-bezier(0.48, 0, 0, 1);
+    animation-timing-function: cubic-bezier(0.48, 0, 0, 1);
+}
+.go #loading-top, .go #loading-bottom, .go #loading-atoms, .go #loading-atoms .loading-atom, .go #loading-disc {
+    -webkit-animation-duration: 1000ms;
+    animation-duration: 1000ms;
+    -webkit-animation-name: loading-two;
+    animation-name: loading-two;
+    -webkit-animation-timing-function: cubic-bezier(0.08, 0.86, 0.08, 1);
+    animation-timing-function: cubic-bezier(0.08, 0.86, 0.08, 1);
+}
+.go #loading-atoms, .go #loading-atoms .loading-atom, .go #loading-disc {
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-name: revert-scale;
+    animation-name: revert-scale;
+}
+.end #loading-top, .end #loading-bottom {
+    -webkit-animation-duration: 1000ms;
+    animation-duration: 1000ms;
+    -webkit-animation-name: loading-three;
+    animation-name: loading-three;
+    -webkit-animation-timing-function: cubic-bezier(0.08, 0.86, 0.08, 1);
+    animation-timing-function: cubic-bezier(0.08, 0.86, 0.08, 1);
+}
+
+@-webkit-keyframes loading-one {
+0% {
+    width: 0;
+}
+100% {
+    width: 69%;
+}
+}
+
+
+
+@keyframes loading-one {
+0% {
+    width: 0;
+}
+100% {
+    width: 69%;
+}
+}
+@-webkit-keyframes loading-two {
+0% {
+    width: 69%;
+}
+100% {
+    width: 100%;
+}
+}
+@keyframes loading-two {
+0% {
+    width: 69%;
+}
+100% {
+    width: 100%;
+}
+}
+@-webkit-keyframes loading-three {
+0% {
+    border-width: 2px;
+    height: 50%;
+    width: 100%;
+}
+100% {
+    border-width: 0;
+    height: 0;
+    width: 100%;
+}
+}
+@keyframes loading-three {
+0% {
+    border-width: 2px;
+    height: 50%;
+    width: 100%;
+}
+100% {
+    border-width: 0;
+    height: 0;
+    width: 100%;
+}
+}
+@-webkit-keyframes circle {
+0% {
+    -webkit-transform: scale(1.25, 1.25);
+    transform: scale(1.25, 1.25);
+}
+100% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+}
+}
+@keyframes circle {
+0% {
+    -webkit-transform: scale(1.25, 1.25);
+    transform: scale(1.25, 1.25);
+}
+100% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+}
+}
+@-webkit-keyframes disc {
+0% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+}
+100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+}
+@keyframes disc {
+0% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+}
+100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+}
+@-webkit-keyframes revert-scale {
+0% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+100% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+}
+}
+@keyframes revert-scale {
+0% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+100% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+}
+}
+
+
+    </style>
+    <script>
+
+
+      document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function() {
+
+     var loading= document.getElementById('loading');
+     loading.classList.add('go')
+
+  }, 1000);
+  setTimeout(function() {
+    loading.classList.add('end');
+  }, 2000);
+  setTimeout(function() {
+   loading.remove();
+  }, 3000); 
+});
+
+
+    </script>
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Poppins:700" rel="stylesheet">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+      <div id="loading">
+    <div id="loading-top"></div>
+    <div id="loading-bottom"></div>
+    <div id="loading-circle"></div>
+    <div id="loading-disc"></div>
+    <div id="loading-atoms">
+    <div id="loading-wawe"></div>
+    </div>
+  </div>
+
+
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

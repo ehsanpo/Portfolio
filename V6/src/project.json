@@ -1,0 +1,38 @@
+ [
+  {
+    description:
+      'Turn your favorite recipes on Pinterest into your grocery list within seconds using Recipelist. Ordering the ingredients is just another click away.',
+    duration: '2016-2017',
+    name: 'Recipelist',
+    // location: '',
+    logo: require('img/recipelist/logo-white.svg'),
+    loadComponent: createFactory(Recipelist),
+    order: 0,
+    properties: { className: 'black' },
+    slug: 'recipelist',
+    appstore: 'https://itunes.apple.com/app/id1246860040',
+    playstore: 'https://play.google.com/store/apps/details?id=com.recipelist',
+    role: 'Creator',
+    scope: 'Web, Mobile, Brand',
+    stack: 'Rails, React, GraphQL',
+    website: 'https://recipelist.co',
+  },
+  {
+    description:
+      'JOMO, 2which stands for Joy of Missing Out, is committed (somewhat ironically) to delivering software and campaigns that challenge people to miss out on all the noise in the online world, and re-engage with people in the real-world.',
+    duration: '2015-2017',
+    name: 'JOMO',
+    location: 'Wilmington, NC',
+    logo: require('img/jomo/logo-white.svg'),
+    loadComponent: createFactory(Jomo),
+    order: 1,
+    properties: null,
+    slug: 'jomo',
+    // appstore: '',
+    // playstore: '',
+    role: 'Lead Designer',
+    scope: 'Web, Mobile, Brand',
+    stack: 'Sketch, Github, Zeplin',
+    website: 'https://jomoapp.com',
+  },
+}

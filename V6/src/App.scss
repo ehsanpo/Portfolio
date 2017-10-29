@@ -1,0 +1,367 @@
+
+/* Variables
+ ========================================================================== */
+
+
+$red:#FE3048;
+
+$max-width: 1200px;
+$max-width_m: 768px;
+
+$break-small: 380px;
+$break-l-small: 490px;
+$break-mid: 768px;
+$break-large: 1024px;
+
+$pad: 16px;
+
+
+$transition: .35s all cubic-bezier(.455,.03,.515,.955);
+
+
+.block-revealer__element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  pointer-events: none;
+  opacity: 0;
+}
+
+
+/* Mixin
+ ========================================================================== */
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+%v_c{
+  top: 50%;
+  transform: translateY(-50%);
+  margin:0 auto;
+  position: relative;
+}
+
+%max_w {
+  width: $max-width;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+    @media only screen  and (max-width :  $max-width) {
+     padding-right: $pad;
+     padding-left: $pad;
+    }
+    @media only screen  and (max-width :  $break-mid) {
+       padding-right: $pad;
+     padding-left: $pad;
+    }
+}
+%max_w_m {
+  width: $max-width_m;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  @media only screen  and (max-width :  $break-mid) {
+       padding-right: $pad;
+     padding-left: $pad;
+    }
+}
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+@mixin bp-large {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
+
+/*
+  @include bp-large{
+      float: right;
+      margin: 9px 0 5px 1rem;
+  }
+*/
+
+body{
+    background: linear-gradient(219deg, #5a141e, #982436, #364251, #2e3443);
+    background-attachment: fixed;
+    color:#FFF;
+    font-family: 'proxima-r';
+    transition: $transition;
+}
+@font-face {
+  font-family: 'lingua-r';
+  src: url('fonts/lingua-r.eot'); /* IE9 Compat Modes */
+  src: url('fonts/lingua-r.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/lingua-r.woff') format('woff'), /* Modern Browsers */
+       url('fonts/lingua-r.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/lingua-r.svg#c10f620bfbfd23b3f98ee507e5a6166e') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+@font-face {
+  font-family: 'proxima-r';
+  src: url('fonts/proxima_r.eot'); /* IE9 Compat Modes */
+  src: url('fonts/proxima_r.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/proxima_r.woff') format('woff'), /* Modern Browsers */
+       url('fonts/proxima_r.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/proxima_r.svg#c10f620bfbfd23b3f98ee507e5a6166e') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+
+html{
+  font-size: 18px;
+  line-height: 1.5;
+}
+body{
+  background-color: #DCD9D4;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
+  background-blend-mode: soft-light,screen;
+  background-attachment: fixed;
+  color:#111;
+  font-family: 'proxima-r';
+}
+
+.red{
+    background: #FE3048;
+    color:#fff;
+    padding: 0 4px;
+}
+.wrapper{
+  @extend %max_w;
+}
+.wrapper-m{
+    @extend %max_w_m;
+}
+.center{
+  text-align: center;
+}
+
+ul{
+  padding: 0;
+  list-style: none;
+}
+a{
+  text-decoration:none;
+  color:$red;
+}
+
+.col2 {
+    display: flex;
+    align-items: center;
+      @include bp-medium{
+        flex-direction: column;
+
+      }
+       @media only screen  and (max-width :  $break-mid) {
+        & > div{
+         padding: $pad 0;
+        }
+    }
+
+    & > div {
+    width: 50%;
+    @include bp-medium{
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+h2{
+  font-family: Poppins;
+}
+
+/* header */
+
+header{
+  padding-top: 10vh;
+  &.wrapper{
+    margin-bottom: 5vh;
+  }
+  h1{
+     font-family: 'lingua-r';
+     margin-bottom: 1rem,
+
+  }
+   span{
+      display: block;
+      font-size: 1.2rem;
+    }
+  ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  li{
+    display: inline-block;
+  }
+  a{
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration:none;
+    color:$red;
+    display: block;
+    margin: 0 5px;
+    padding: 0 5px;
+  }
+  .logo{
+    width: 60px;
+  }
+}
+
+.project{
+  font-family: Inconsolata;
+  .p_image{
+    img{
+      display: block;
+    }
+  }
+   img {
+    width: 100%; 
+  }
+  .hiddendesc{
+    display: none;
+  }
+  h2{
+    font-size: 4vw;
+     @media only screen  and (max-width :  $break-mid) {
+        font-size: 6vw;
+        line-height: 1.4;
+    }
+    margin:0;
+    line-height: 1;
+  }
+
+}
+
+.projectlist{
+  li:first-child .project  {
+     margin-top: 0;
+  }
+    li:nth-child(2n) .col2 div:first-child {
+    order: 2;
+     @media only screen  and (max-width :  $break-mid) {
+        order: 0;
+    }
+    text-align: right;
+  }
+  li:nth-child(2n) .col2 div:nth-child(2) {
+    order: 1;
+  }
+  .project{
+    margin : 15vh 0 ;
+    @media only screen  and (max-width :  $break-mid) {
+       margin : 5vh 0 ;
+    }
+    .role,.stack,h2{
+      
+       @media only screen  and (min-width :  $break-mid) {
+       padding: 0 6vw;
+    }
+    }
+  }
+}
+
+
+
+.black{
+  background:#000;
+  color:#fff;
+  h2{
+    color:#fff
+  }
+}
+.toolpool{
+    background:#f0f0f0;
+  h2{
+    color:rgb(208, 80, 146);
+  }
+}
+.gray{
+   background:#eae8e9;
+}
+.yellow{
+  background:#edeff0;
+   h2{
+    display: inline-block;
+    background:#ffed00;
+    padding: 0 $pad;
+  }
+}
+.mekonomen{
+     h2{
+    color:#3fbc9b;
+  }
+}
+.brun{
+  background: #d7c9b6;
+}
+.symsoft{
+  background: #d8eade;
+  h2{
+    color:#3e955c
+  }
+}
+.appleapp{
+    background:#e8e6e0;
+  h2{
+    color:#ac3100;
+  }
+}
+.soctanter{
+  background  :#fff;
+  
+   h2{
+    color:#ff8200
+  }
+}
+.kammarkollegiet{
+ background:#e8e8e8;
+    h2{
+    display: inline-block;
+    background: #006992;
+    color:#fff;
+    padding: 0 $pad;
+  }
+
+}
+.Muslimix{
+
+}
