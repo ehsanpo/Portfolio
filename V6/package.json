@@ -37,6 +37,7 @@
     "react-chartjs-2": "^2.6.4",
     "react-dev-utils": "^4.1.0",
     "react-dom": "^16.0.0",
+    "react-instafeed": "^0.4.0",
     "react-router-dom": "^4.2.2",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",

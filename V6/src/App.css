@@ -42,8 +42,7 @@ body {
   background: linear-gradient(219deg, #5a141e, #982436, #364251, #2e3443);
   background-attachment: fixed;
   color: #FFF;
-  font-family: 'proxima-r';
-  transition: 0.35s all cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+  font-family: 'proxima-r'; }
 
 @font-face {
   font-family: 'lingua-r';
@@ -66,14 +65,6 @@ body {
 html {
   font-size: 18px;
   line-height: 1.5; }
-
-body {
-  background-color: #DCD9D4;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), radial-gradient(at 50% 0%, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.5) 50%);
-  background-blend-mode: soft-light,screen;
-  background-attachment: fixed;
-  color: #111;
-  font-family: 'proxima-r'; }
 
 .red {
   background: #FE3048;
@@ -115,10 +106,27 @@ iframe {
         width: 100%; } }
   .col2 > canvas {
     max-width: 50%;
-    margin-bottom: 10vh; }
+    margin-bottom: 8vh; }
+    .col2 > canvas:nth-child(7), .col2 > canvas:nth-child(8) {
+      margin-bottom: 0; }
     @media only screen and (max-width: 40em) {
       .col2 > canvas {
         max-width: 100%; } }
+  .col2.col2-1 div:nth-child(1) {
+    width: 67%;
+    padding-right: 16px;
+    box-sizing: border-box; }
+  .col2.col2-1 div:nth-child(2) {
+    width: 33%; }
+
+.col3 {
+  display: flex;
+  flex-wrap: wrap; }
+  .col3 > div {
+    width: 33.33%; }
+    @media only screen and (max-width: 40em) {
+      .col3 > div {
+        width: 100%; } }
 
 .col4 {
   display: flex;
@@ -127,14 +135,72 @@ iframe {
   @media only screen and (max-width: 768px) {
     .col4 {
       margin: 2vh 0; } }
-  .col4 > div {
+  .col4 > div, .col4 > a {
     width: 25%; }
     @media only screen and (max-width: 40em) {
-      .col4 > div {
+      .col4 > div, .col4 > a {
         width: 100%; } }
 
-h2 {
-  font-family: Poppins; }
+#instafeed {
+  display: flex;
+  flex-wrap: wrap; }
+  #instafeed div {
+    display: none; }
+  #instafeed img {
+    width: 100%; }
+  #instafeed a {
+    width: calc(25% - 12px);
+    box-sizing: border-box; }
+    @media only screen and (min-width: 768px) {
+      #instafeed a {
+        margin: 0 8px; }
+        #instafeed a:nth-child(2) {
+          margin-left: 0; }
+        #instafeed a:nth-child(5) {
+          margin-right: 0; } }
+
+/* footer */
+footer {
+  font-size: 0.8em;
+  border-top: 1px solid #fff;
+  padding-top: 20px; }
+  footer h2 {
+    font-size: 1em; }
+
+.socialicons li {
+  display: inline;
+  float: left;
+  margin: 0 8px 0 0;
+  padding: 0; }
+
+.socialicons li a {
+  float: left;
+  height: 30px;
+  width: 30px;
+  -webkit-transition: all 350ms ease-in-out 0s;
+  transition: all 350ms ease-in-out 0s; }
+
+.social-linkedin {
+  background: url("/img/social_linkedin.png") no-repeat scroll 5px 5px #444; }
+
+.social-twitter {
+  background: url("/img/social_twitter.png") no-repeat scroll 5px 5px #444; }
+
+.social-soundcloud {
+  background: url("/img/social_soundcloud.png") no-repeat scroll 5px 5px #444; }
+
+.socialicons li a:hover {
+  -webkit-transition: all 50ms ease-in-out 0s;
+  transition: all 50ms ease-in-out 0s; }
+
+.social-linkedin:hover {
+  background-color: #3B5998; }
+
+.social-twitter:hover {
+  background-color: #22B1E5; }
+
+.social-soundcloud:hover {
+  background-color: #FF7100; }
 
 /* header */
 header {
@@ -159,50 +225,54 @@ header {
     text-transform: uppercase;
     letter-spacing: 2px;
     text-decoration: none;
-    color: #FE3048;
+    color: #fff;
     display: block;
     margin: 0 5px;
     padding: 0 10px;
     transition: 0.35s all cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+    @media only screen and (max-width: 40em) {
+      header a {
+        font-size: 0.7em; } }
     header a.active {
       color: #fff;
       background: #FE3048;
       border-radius: 2px; }
   header .logo {
-    width: 60px; }
+    width: 140px; }
 
 .awardlist {
   font-size: 12px;
   text-align: center;
-  font-family: Poppins;
   color: #FFF; }
   .awardlist div {
     cursor: pointer; }
 
-.project {
-  font-family: Inconsolata; }
-  .project .p_image img {
-    display: block;
-    margin-bottom: 16px; }
-  .project img {
-    width: 100%; }
-  .project .hiddendesc {
-    display: none; }
-  .project h2 {
-    font-size: 4vw;
-    margin: 16px 0;
-    line-height: 1; }
-    @media only screen and (max-width: 768px) {
-      .project h2 {
-        font-size: 6vw;
-        line-height: 1.4; } }
+.project .p_image img {
+  display: block;
+  margin-bottom: 16px; }
+
+.project img {
+  width: 100%; }
+
+.project .hiddendesc {
+  display: none; }
+
+.project h2 {
+  font-size: 4vw;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 16px 0;
+  line-height: 1; }
+  @media only screen and (max-width: 768px) {
+    .project h2 {
+      font-size: 6vw;
+      line-height: 1.4; } }
 
 .projectlist li:first-child .project {
   margin-top: 0; }
 
 .projectlist li:nth-child(2n) .col2 div:first-child {
-  order: 2;
-  text-align: right; }
+  order: 2; }
   @media only screen and (max-width: 768px) {
     .projectlist li:nth-child(2n) .col2 div:first-child {
       order: 0; } }
@@ -211,55 +281,8 @@ header {
   order: 1; }
 
 @media only screen and (min-width: 768px) {
-  .projectlist .project .role, .projectlist .project .stack, .projectlist .project h2 {
+  .projectlist .project .desc, .projectlist .project .role, .projectlist .project .stack, .projectlist .project h2 {
     padding: 0 6vw; } }
 
-.black {
-  background: #000;
-  color: #fff; }
-  .black h2 {
-    color: #fff; }
-
-.toolpool {
-  background: #f0f0f0; }
-  .toolpool h2 {
-    color: #d05092; }
-
-.gray {
-  background: #eae8e9; }
-
-.yellow {
-  background: #edeff0; }
-  .yellow h2 {
-    display: inline-block;
-    background: #ffed00;
-    padding: 0 16px; }
-
-.mekonomen h2 {
-  color: #3fbc9b; }
-
-.brun {
-  background: #d7c9b6; }
-
-.symsoft {
-  background: #d8eade; }
-  .symsoft h2 {
-    color: #3e955c; }
-
-.appleapp {
-  background: #e8e6e0; }
-  .appleapp h2 {
-    color: #ac3100; }
-
-.soctanter {
-  background: #fff; }
-  .soctanter h2 {
-    color: #ff8200; }
-
-.kammarkollegiet {
-  background: #e8e8e8; }
-  .kammarkollegiet h2 {
-    display: inline-block;
-    background: #006992;
-    color: #fff;
-    padding: 0 16px; }
+.portratt img {
+  width: 100%; }

@@ -3,8 +3,18 @@ version : 0.1
 phases:
     build:
         commands:
-          - echo Noting yet
+          - npm install
+          - npm build-css
+          - npm build
+
 
 artifacts:
   files:
-    index.html 
+    - index.html
+    - favicon.ico
+    - fonts/*
+    - img/*
+    - asset-manifest.json
+    - manifest.json
+    - service-worker.js
+    - static/*

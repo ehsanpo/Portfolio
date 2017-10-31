@@ -111,7 +111,7 @@ body{
     background-attachment: fixed;
     color:#FFF;
     font-family: 'proxima-r';
-    transition: $transition;
+    
 }
 @font-face {
   font-family: 'lingua-r';
@@ -141,14 +141,7 @@ html{
   font-size: 18px;
   line-height: 1.5;
 }
-body{
-  background-color: #DCD9D4;
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
-  background-blend-mode: soft-light,screen;
-  background-attachment: fixed;
-  color:#111;
-  font-family: 'proxima-r';
-}
+
 
 .red{
     background: #FE3048;
@@ -204,23 +197,32 @@ iframe{
     }
     & > canvas {
     max-width: 50%;
-    margin-bottom: 10vh;
+    margin-bottom: 8vh;
+    &:nth-child(7),&:nth-child(8){
+      margin-bottom: 0;
+    }
     @include bp-medium{
       max-width: 100%;
+    }
+  }
+  &.col2-1{
+    div:nth-child(1){
+      width: 67%;
+      padding-right:$pad;
+      box-sizing:border-box;
+    }
+    div:nth-child(2){
+      width: 33%;
     }
   }
 
 }
 
-.col4 {
+.col3 {
     display: flex;
     flex-wrap: wrap;
-    margin: 5vh 0;
-    @media only screen  and (max-width :  $break-mid) {
-       margin : 2vh 0 ;
-    }
     & > div {
-    width: 25%;
+    width: 33.33%;
     @include bp-medium{
       width: 100%;
       }
@@ -228,9 +230,91 @@ iframe{
 
 }
 
+.col4{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5vh 0;
+    @media only screen  and (max-width :  $break-mid) {
+       margin : 2vh 0 ;
+    }
+    & > div , & > a{
+    width: 25%;
+    @include bp-medium{
+      width: 100%;
+      }
+    }
 
-h2{
-  font-family: Poppins;
+}
+#instafeed{
+      display: flex;
+    flex-wrap: wrap;
+  div{
+    display: none;
+  }
+  img{
+    width: 100%;
+  }
+  a{
+    width: calc(25% - 12px);
+    box-sizing:border-box;
+    @media only screen  and (min-width :  $break-mid) {
+    margin: 0 8px;
+    &:nth-child(2){
+      margin-left: 0;
+     
+    }
+    &:nth-child(5){
+       margin-right: 0;
+    }
+    }
+
+  }
+
+}
+
+/* footer */
+footer{
+   font-size: 0.8em;
+   border-top: 1px solid #fff;
+padding-top: 20px;
+  h2{
+    font-size: 1em;
+  }
+}
+.socialicons li {
+    display: inline;
+    float: left;
+    margin: 0 8px 0 0;
+    padding: 0;
+}
+.socialicons li a {
+    float: left;
+    height: 30px;
+    width: 30px;
+    -webkit-transition: all 350ms ease-in-out 0s;
+    transition: all 350ms ease-in-out 0s;
+}
+.social-linkedin {
+    background: url("/img/social_linkedin.png") no-repeat scroll 5px 5px #444;
+}
+.social-twitter {
+    background: url("/img/social_twitter.png") no-repeat scroll 5px 5px #444;
+}
+.social-soundcloud {
+    background: url("/img/social_soundcloud.png") no-repeat scroll 5px 5px #444;
+}
+.socialicons li a:hover {
+    -webkit-transition: all 50ms ease-in-out 0s;
+    transition: all 50ms ease-in-out 0s;
+}
+.social-linkedin:hover {
+    background-color: #3B5998;
+}
+.social-twitter:hover {
+    background-color: #22B1E5;
+}
+.social-soundcloud:hover {
+    background-color: #FF7100;
 }
 
 /* header */
@@ -263,12 +347,15 @@ header{
     text-transform: uppercase;
     letter-spacing: 2px;
     text-decoration:none;
-    color:$red;
+    color:#fff;
     display: block;
     margin: 0 5px;
     padding: 0 10px;
     transition: $transition;
-
+    @include bp-medium{
+      font-size:0.7em;
+    
+    }
     &.active{
 
     color: #fff;
@@ -277,14 +364,13 @@ header{
     }
   }
   .logo{
-    width: 60px;
+    width: 140px;
   }
 }
 
 .awardlist{
   font-size: 12px;
   text-align: center;
-  font-family: Poppins;
   color:#FFF;
   div{
     cursor: pointer;
@@ -301,7 +387,7 @@ header{
 
 }
 .project{
-  font-family: Inconsolata;
+ 
   .p_image{
     img{
       display: block;
@@ -316,6 +402,8 @@ header{
   }
   h2{
     font-size: 4vw;
+    text-transform: uppercase;
+    letter-spacing: 2px;
      @media only screen  and (max-width :  $break-mid) {
         font-size: 6vw;
         line-height: 1.4;
@@ -335,7 +423,7 @@ header{
      @media only screen  and (max-width :  $break-mid) {
         order: 0;
     }
-    text-align: right;
+ 
   }
   li:nth-child(2n) .col2 div:nth-child(2) {
     order: 1;
@@ -345,7 +433,7 @@ header{
     @media only screen  and (max-width :  $break-mid) {
        //margin : 5vh 0 ;
     }
-    .role,.stack,h2{
+    .desc,.role,.stack,h2{
       
        @media only screen  and (min-width :  $break-mid) {
        padding: 0 6vw;
@@ -354,69 +442,73 @@ header{
   }
 }
 
+.portratt{
+  img{
+    width: 100%;
+  }
+}
 
-
-.black{
-  background:#000;
-  color:#fff;
-  h2{
-    color:#fff
-  }
-}
-.toolpool{
-    background:#f0f0f0;
-  h2{
-    color:rgb(208, 80, 146);
-  }
-}
-.gray{
-   background:#eae8e9;
-}
-.yellow{
-  background:#edeff0;
-   h2{
-    display: inline-block;
-    background:#ffed00;
-    padding: 0 $pad;
-  }
-}
-.mekonomen{
-     h2{
-    color:#3fbc9b;
-  }
-}
-.brun{
-  background: #d7c9b6;
-}
-.symsoft{
-  background: #d8eade;
-  h2{
-    color:#3e955c
-  }
-}
-.appleapp{
-    background:#e8e6e0;
-  h2{
-    color:#ac3100;
-  }
-}
-.soctanter{
-  background  :#fff;
+// .black{
+//   background:#000;
+//   color:#fff;
+//   h2{
+//     color:#fff
+//   }
+// }
+// .toolpool{
+//     background:#f0f0f0;
+//   h2{
+//     color:rgb(208, 80, 146);
+//   }
+// }
+// .gray{
+//    background:#eae8e9;
+// }
+// .yellow{
+//   background:#edeff0;
+//    h2{
+//     display: inline-block;
+//     background:#ffed00;
+//     padding: 0 $pad;
+//   }
+// }
+// .mekonomen{
+//      h2{
+//     color:#3fbc9b;
+//   }
+// }
+// .brun{
+//   background: #d7c9b6;
+// }
+// .symsoft{
+//   background: #d8eade;
+//   h2{
+//     color:#3e955c
+//   }
+// }
+// .appleapp{
+//     background:#e8e6e0;
+//   h2{
+//     color:#ac3100;
+//   }
+// }
+// .soctanter{
+//   background  :#fff;
   
-   h2{
-    color:#ff8200
-  }
-}
-.kammarkollegiet{
- background:#e8e8e8;
-    h2{
-    display: inline-block;
-    background: #006992;
-    color:#fff;
-    padding: 0 $pad;
-  }
+//    h2{
+//     color:#ff8200
+//   }
+// }
+// .kammarkollegiet{
+//  background:#e8e8e8;
+//     h2{
+//     display: inline-block;
+//     background: #006992;
+//     color:#fff;
+//     padding: 0 $pad;
+//   }
 
-}
-.Muslimix{
+// }
+// .Muslimix{
 
-}
+// }

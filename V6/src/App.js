@@ -6,8 +6,12 @@ import chart_data from './About-data';
 
 import logo from './logo.svg';
 import './App.css';
+import Instafeed from 'react-instafeed';
 
 import {Radar} from 'react-chartjs-2';
+import { defaults } from 'react-chartjs-2';
+
+defaults.global.defaultFontColor = "rgba(255,255, 255, 1)"
 
 
 class App extends Component {
@@ -18,15 +22,17 @@ class App extends Component {
          <HeaderComp />
          <div className="wrapper">
           <Switch>
-            <Route path="/contact" component={ Contact } />
             <Route path="/work/:slug" component={ Project} />
             <Route path="/work" component={ ProjectList } />
             <Route path="/music" component={  MusicList } />
             <Route path="/skills" component={  SkillList } />
-            <Route ecxat path="/" component={ About} />
+
+            <Route path="/about" component={ About } />
+            <Route ecxat path="/" component={ Home} />
             <Route component={ NotFound } />
           </Switch>
           </div>
+          <Footer />
         </div>
       </Router>
     
@@ -40,13 +46,10 @@ const NotFound = () => (
 
 const  HeaderComp = () => (
             <header className="wrapper center">
-                <img width="60" src={logo} alt="Ehsan Pourhadi" className="logo" />
+                <NavLink exact to="/" activeClassName="active-logo" ><img width="140" src={logo} alt="Ehsan Pourhadi" className="logo" /></NavLink>
                 <h1>Ehsan Pourhadi  <span>Creative Developer</span> </h1>
                 <nav>
                     <ul>
-                        <li>
-                          <NavLink exact to="/">About</NavLink>
-                        </li>
                         <li>
                          <NavLink to="/work">Work</NavLink>
                         </li>
@@ -56,6 +59,9 @@ const  HeaderComp = () => (
                         <li>
                          <NavLink to="/music">Music</NavLink>
                         </li>
+                        <li>
+                          <NavLink to="/about">About</NavLink>
+                        </li>
                        
                     </ul>
                 </nav>
@@ -63,25 +69,46 @@ const  HeaderComp = () => (
   )
 
 
-const  About  = () => (
-                        <div className="wrapper-m about">
+const  Home  = () => (
+                        <div className="about wrapper-m">
+                            I’m Ehsan Pourhadi, A Web developer, Designer and Producer providing digital solutions. I’m based In Malmö, Sweden and currently work at <a href="http://gutsglory.se/">Guts & Glory</a>, creating valuable websites & digital solutions.<br /><br />
+                            <AwardList />
+
+                        </div>
+  )   
+
+const  About = () => (
+                        <div>
+                        <div className="col2 col2-1">
+                          
+                        <div className="about ">
                             I’m <span className="red">Ehsan Pourhadi</span>, A Web developer, Designer and Producer providing digital solutions. I’m based In Malmö, <span className="red">Sweden</span> and currently work at <a href="http://gutsglory.se/">Guts & Glory</a>, creating valuable websites & digital solutions.<br /><br />
 
                             I specialize in web development, LAMP/LNMP Stacks and Wordpress, Drupal, Laravel. In addition, I have extensive knowledge in user interface design, logo/identity production as well as search engine optimization. Furthermore, I also have an immense knowledge within multimedia and mobile development alongside a few other technical skills.<br /><br />
 
                             I’m always in the search for different concepts, platforms and techniques that I can utilize in order to obtain a much richer and innovative multimedia experience.
                           
-                        
+                        </div>
+                        <div className="portratt"><img src="/img/ehsan.jpg" /></div>
+                        </div>
 
-                            <AwardList />
+
+                            <Instagram />
 
                         </div>
   )   
 
-
 const SkillList   = () => (
             <div>
-            <Certification />
+        
+            <div className="wrapper-m">
+            I'm a self-taught web developer. I do not have any education in the field but my great interest in Tech Industry pushed me to learn everything on the internet.
+I gained my skills mostly by watching online videos and tutorials. I begin my journey as Front-end developer and moved to working with backend languages like PHP and Node.js. After working professionally as full-stack, I moved forward to Devop And Sysadmin areas.<br />
+I got my AWS Certified Solutions Architect - Associate in oct 2017 and planning to get my developer and security certification by end of the year.<br />
+<br />
+Its hard for me to convey my level of skill in a variety of fields on one page. Therefore the main purpose of the charts are not to show you my overall skill in each program, but rather to display my fluency in comparison to similar systems and programs. So that you can get an picture of my strongest sides.
+
+            </div>
             <div className="col2">
               
               <Radar data={chart_data.dataFE}  options={chart_data.dataOptions }/>
@@ -101,7 +128,7 @@ const  ProjectList  = () => (
                   <ul>
                     { Object.keys(all_clients).map((k, index) => (
                      <li>
-                        <Project slug={all_clients[k].slug} posetion={index}/>
+                        <Project slug={all_clients[k].slug} posetion={index} key={index}/>
                      </li>
                      )
 
@@ -114,16 +141,64 @@ const  ProjectList  = () => (
 
 const  MusicList  = () => (
              <div>
+             <p>
+               Since the birth of my cognitive ability, music has been an essential part of my life. So naturally, I tried to make music using anything around me. <br /> Now that I can make music, my goal is simple; I want to share my music with the world and can communicate with you through this remarkable medium.<br /> Lets build something together! 
+             </p>
                 <iframe width="100%" height="600" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/62694&amp;color=%23fe3048&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
             </div>
   )
 
 
-const  Contact  = () => (
-             <div>
-               <h1>Contact</h1>
-            </div>
+const  Footer  = () => (
+      <footer className="wrapper col3">
+        <div>
+          <h2>Get in touch</h2>
+          <ul className="socialicons">
+            <li><a className="social-linkedin" target="_blank" href="https://www.linkedin.com/in/ehsanp/"></a></li>
+            <li><a className="social-twitter" target="_blank" href="https://twitter.com/ehsanpo"></a></li>
+            <li><a className="social-soundcloud" target="_blank" href="http://soundcloud.com/eprumental"></a></li>
+          </ul>
+
+        </div>
+        <div>
+          <h2>Contact info</h2>
+          <a target="_blank" href="mailto:hi@ehsan-pourhadi.com"> hi@ehsan-pourhadi.com </a><br />
+          072 006 27 97
+
+        </div>
+        <div >
+          <h2>About this site</h2>
+          <p>This is the portfolio of Ehsan Pourhadi.
+          Developer, producer &amp; graphic desginer based in Malmö, Sweden.
+          </p>
+        </div>
+      </footer>
   )
+
+class Instagram extends React.Component {
+
+
+
+render(){
+  const instafeedTarget = 'instafeed';
+   return (
+     <div id={instafeedTarget}>
+      <Instafeed
+        limit='4'
+        ref='instafeed'
+        resolution='low_resolution'
+        sortBy='most-recent'
+        target={instafeedTarget}
+        template=''
+        userId='300129657'
+        clientId='d845b51caa6f4051b269ea9a5a96b4ba'
+        accessToken='300129657.1677ed0.7e4241c91daa4aef972e750100147086'
+      />
+    </div>
+    )
+}
+
+}
 
 class Award  extends React.Component {
   constructor(props) {
@@ -155,7 +230,7 @@ class Award  extends React.Component {
 
  }
   revealFx (el, i,reveal) {
-    console.log('ev')
+
         let rev =[];
         let direction = 'tb';
         rev[i] = new window.RevealFx(el, {
@@ -218,6 +293,8 @@ class Award  extends React.Component {
                 <h3  onClick={this.handleClick }> {this.props.text}</h3>
                 <div ref="image"  className={ this.state.isToggleOn ? 'desc-ON' : 'desc-OFF'}>
                   {this.props.desc}
+                  {this.props.linkto &&  <NavLink to= { "/work/" + this.props.linkto }>View Project</NavLink>}
+                 
                 </div>
 
             </div>
@@ -229,17 +306,18 @@ class Award  extends React.Component {
 
 const  AwardList  = () => (
             <div className="col4 awardlist">
-              <Award imgsrc="/img/guldagg.png"  text="Guldägget" desc={<p>Gold Category PR<br />Silver Category Digital<br/>Silver Category Alternative Media</p>}/>
-              <Award imgsrc="/img/cannen.png"  text="Cannes lions" desc={<p>Silver Lion in Promo &amp; Activation<br/>Bronze Lion in Cyber <br/>Shortlist in Media</p>}/>
-              <Award imgsrc="/img/svenskadesign.png"  text="Svenska Designpriset " desc={<p>Gold Category Digital Design</p>}/>
-              <Award imgsrc="/img/award.png"  text="Other Awards" desc={<p>
+              <Award linkto="toolpool" imgsrc="/img/guldagg.png"  text="Guldägget" desc={<p>Gold Category PR<br />Silver Category Digital<br/>Silver Category Alternative Media</p>}/>
+              <Award linkto="toolpool" imgsrc="/img/cannen.png"  text="Cannes lions" desc={<p>Silver Lion in Promo &amp; Activation<br/>Bronze Lion in Cyber <br/>Shortlist in Media</p>}/>
+              <Award linkto="malmo-saluhall" imgsrc="/img/svenskadesign.png"  text="Svenska Designpriset " desc={<p>Gold Category Digital Design</p>}/>
+              <Award imgsrc="/img/award.png"  text="Other Awards" desc={
+              <p>
               Epica Awards : Bronze in PR<br />
               Tomorrow Awards: 1 Shortlist<br />
               Eurobest 13: Bronze in Interactive<br />
               Spinn 13: Gold Consumer Campaign<br />
-              100 Wattaren: Gold (100w) under "SMART" category
-            </p>
-          }/>
+              100 Wattaren: Gold (100w) under "SMART" category 
+              </p>
+              }/>
             </div>
   )
 const Certification = () =>(
@@ -257,7 +335,7 @@ class Project  extends React.Component {
   const type  = this.props.slug  ?  "singel" : "list" ;
  
   const client = all_clients.find(c => c.slug === slug);
-   // console.log(client);
+
     this.state = {
       client: client,
       type:type,
@@ -358,8 +436,7 @@ class Project  extends React.Component {
            <div className="col2">
               <div>
                   <NavLink to={'/work/' + client.slug }><h2 ref="title">{client.name}</h2></NavLink>
-                  <div className="role" ref="role">{client.role}</div>
-                  <div className="stack" ref="stack">{client.stack}</div>
+                  <div className="desc" ref="role"> {client.description}</div>
               </div>
               <div className="p_image ">
                 <NavLink to={'/work/' + client.slug } >
@@ -368,7 +445,7 @@ class Project  extends React.Component {
                     </div> 
                   
                   <div className="hiddendesc">
-                  {client.description}
+                 
                 </div>
               </NavLink>
              </div> 
@@ -389,7 +466,8 @@ class Project  extends React.Component {
                 </div>
            </div>
            <div ref="desc" >
-             {client.description}
+             {client.description} <br />
+             {client.long_desc}
            </div>
          
          </div> 

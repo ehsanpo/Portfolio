@@ -18,11 +18,11 @@ export default [
   },
     {
     name: 'ToolPool',
-    description:"ToolPool is like a carpool, but with tools and it's free",
-    long_desc:"Malmö Hardware Store needed an idea to be able to compete with the giant home improvement chains that are taking over the market. We learned that the stores main earnings comes from supplies, not from expensive tools. So we created ToolPool. It works just like a carpool, but with tools. And its for free. All we ask for in return is that you share our message on Facebook.<br> During the very first month, ToolPool received extensive media coverage, over 600 members and sales in the store increased by 25%.<br><br>  ToolPool has been awarded in Cannes Lions (Silver Lion in Promo & Activation, Bronze Lion in Cyber and Shortlist in Media), GuldÃ¤gget (Golden Egg in PR, Silver Egg in Digital and Silver Egg in Alternative Media), Tomorrow Awards (Shortlist), Spinn (Shortlist x3), Best Ads (Gold), Campaign of the Month, Interactive (Gold), 100-wattaren (Gold) and published in Contagius Magazine.",
+    description:"ToolPool is like a carpool, but with tools and it's free.",
+    long_desc:"Malmö Hardware Store needed an idea to be able to compete with the giant home improvement chains that are taking over the market. We learned that the stores main earnings comes from supplies, not from expensive tools. So we created ToolPool. It works just like a carpool, but with tools. And its for free. All we ask for in return is that you share our message on Facebook. During the very first month, ToolPool received extensive media coverage, over 600 members and sales in the store increased by 25%. ToolPool has been awarded in Cannes Lions (Silver Lion in Promo & Activation, Bronze Lion in Cyber and Shortlist in Media), GuldÃ¤gget (Golden Egg in PR, Silver Egg in Digital and Silver Egg in Alternative Media), Tomorrow Awards (Shortlist), Spinn (Shortlist x3), Best Ads (Gold), Campaign of the Month, Interactive (Gold), 100-wattaren (Gold) and published in Contagius Magazine.",
     duration: '2012-2015',
     slug: 'toolpool',
-    img:['t12.png','Toolpool_panna_o.jpg','ToolPool_Bestdigital_Marketing_o.jpg'],
+    img:['tp-1.png','Toolpool_panna_o.jpg','ToolPool_Bestdigital_Marketing_o.jpg'],
     order: 0,
     properties: { className: 'toolpool' },
     role: 'Front-end/ Backend',
@@ -85,7 +85,7 @@ export default [
   },
   {
     name: 'Symsoft',
-    description:"Cloud Communications for the World's Most Demanding Enterprises",
+    description:"Cloud Communications for the World's Most Demanding Enterprises.",
     long_desc:"I got into the team in the middle of the project and got work mostly with bug fixes & backend but also adding new features and front-end for new parts of the site. I also took care of their servers (stage, prod) Ubuntu.",
     duration: '2015-2016',
     slug: 'clx-symsoft',
@@ -98,7 +98,7 @@ export default [
   },
   {
     name: 'Äppleappen',
-    description:'A pomologist on the phone - Discover Swedish apples in your phone',
+    description:'A pomologist on the phone - Discover Swedish apples in your phone.',
     long_desc:"I worked together in a team of a designer and two full stack developers , we built Android and the web version of the app iPhone app.",
     duration: '2015',
     slug: 'appleapp',
@@ -111,7 +111,7 @@ export default [
   },
   {
     name: 'Soctanter',
-    description:'Soctanter på nätet',
+    description:'Soctanter på nätet.',
     long_desc:"The mission was to move the old Soctanter site to a new platform (Drupal forum). But in the pre studies of the project, we had the chanse to meet with moderators who worked with the website and felt how difficult it would be for them to use a forum. After some meeting with those responsible for the Soctanter, we were assigned to developing a new platform that users could use to submit questions and moderators got to answer them. Also, the backend was built so that Soctanter who were to work could have all the features they needed.",
     duration: '2015',
     slug: 'soctanter',
@@ -138,7 +138,7 @@ export default [
       {
     name: 'Muslimix',
     description:'FINAX well known FCMG brand and famous muesli maker wanted to engage with consumers by combining music and the muesli ingredients through an interactive and social media based web-campaign. The criteria were; a fun, easy-to-use and cool sounding application.',
-    long_desc:"So The Fan Club and Magisty developed a web campaign application that enabled the user to mix ingredients into customized bags of muesli, just like a DJ mixing different beats and sound effects into cool dance tunes. Consumers mixed their own blends and the beats were shared in their fb-feeds for competing to win a yearâ€™s supply of FINAX breakfast cereals.<br><br>The result; a successful campaign and a web based application using the latest HTML5 sound technology including a social media campaign with voting, rating and sharing functionality. Also, a lot of cool beats.",
+    long_desc:"So The Fan Club and Magisty developed a web campaign application that enabled the user to mix ingredients into customized bags of muesli, just like a DJ mixing different beats and sound effects into cool dance tunes. Consumers mixed their own blends and the beats were shared in their fb-feeds for competing to win a years supply of FINAX breakfast cereals.The result; a successful campaign and a web based application using the latest HTML5 sound technology including a social media campaign with voting, rating and sharing functionality. Also, a lot of cool beats.",
     duration: '2014',
     slug: 'muslimix',
     img:['mm.jpg','mm-1.jpg','mm-2.jpg','mm-3.jpg'],
