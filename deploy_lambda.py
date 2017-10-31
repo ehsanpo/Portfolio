@@ -32,7 +32,7 @@ def handler(event, context):
             for nm in myzip.namelist():
                 obj= myzip.open(nm)
                 print(nm)
-                site_bucket.upload_fileobj(obj,nm)
+                site_bucket.upload_fileobj(obj,nm,ExtraArgs = {'ContentType': mimetypes.guess_type(nm)[0]})
                 site_bucket.Object(nm).Acl().put(ACL='public-read')
         if job:
             codepipeline = boto3.client('codepipeline')

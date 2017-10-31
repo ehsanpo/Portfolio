@@ -17,7 +17,7 @@ defaults.global.defaultFontColor = "rgba(255,255, 255, 1)"
 class App extends Component {
   render() {
     return (
-      <Router basename={'v6'}>
+      <Router>
         <div>
          <HeaderComp />
          <div className="wrapper">

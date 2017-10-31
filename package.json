@@ -2,7 +2,7 @@
   "name": "ehsan-pourhadi-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ehsan-pourhadi.com/v6/",
+  "homepage": "http://ehsan-pourhadi.com/",
   "dependencies": {
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
