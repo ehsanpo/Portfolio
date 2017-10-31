@@ -10,11 +10,4 @@ phases:
 
 artifacts:
   files:
-    - index.html
-    - favicon.ico
-    - fonts/*
-    - img/*
-    - asset-manifest.json
-    - manifest.json
-    - service-worker.js
-    - static/*
+    - build/*
