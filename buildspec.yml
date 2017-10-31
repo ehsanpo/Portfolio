@@ -4,8 +4,8 @@ phases:
     build:
         commands:
           - npm install
-          - npm build-css
-          - npm build
+          - npm run build-css
+          - npm run build
 
 
 artifacts:
