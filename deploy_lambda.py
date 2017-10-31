@@ -17,6 +17,7 @@ def handler(event, context):
             for artifact in job["data"]["inputArtifacts"]:
                 if artifact["name"] == "MyAppBuild":
                     location = artifact["location"]["s3Location"]
+                    print(artifact["location"]["s3Location"])
         
         print "build from " +   str(location)   
         s3 = boto3.resource('s3', config=Config(signature_version='s3v4') )
@@ -30,18 +31,21 @@ def handler(event, context):
         with zipfile.ZipFile(site_zip) as myzip:
             for nm in myzip.namelist():
                 obj= myzip.open(nm)
-                site_bucket.upload_fileobj(obj,nm,ExtraArgs = {'ContentType': mimetypes.guess_type(nm)[0]})
+                print(nm)
+                site_bucket.upload_fileobj(obj,nm)
                 site_bucket.Object(nm).Acl().put(ACL='public-read')
-                
-        topic.publish(Subject="Website updated" , Message="Update completed") 
         if job:
             codepipeline = boto3.client('codepipeline')
             codepipeline.put_job_success_result(jobId=job["id"])
             
+        topic.publish(Subject="Website updated" , Message="Update completed")     
          
          
     except:
          topic.publish(Subject="Website updated failed" , Message="Update Failed")
+         if job:
+            codepipeline = boto3.client('codepipeline')
+            codepipeline.put_job_failure_result(jobId=job["id"], failureDetails={'type': 'JobFailed','message': sys.exc_info()[0]})
          raise
         
     return "done"
