@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "eslint-config-react-tools": "1.x.x",
+    "react-app-env": "^1.2.0",
     "serve": "^6.1.0"
   }
 }
