@@ -1,0 +1,18 @@
+.awardlist{
+  font-size: 12px;
+  text-align: center;
+  color:#FFF;
+  div{
+    cursor: pointer;
+  }
+  // div > div{
+  //  height: 0;
+  //  overflow: hidden;
+  //  transition: $transition;
+  //  &.desc-ON{
+  //   height: 120px;
+  //   color:#000;
+  //  }
+  // }
+
+}

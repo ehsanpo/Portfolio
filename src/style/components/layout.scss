@@ -1,0 +1,110 @@
+body{
+    //background: linear-gradient(219deg, #4703f4, #aa31e6);
+    background: linear-gradient(220deg, #2e3443,#2e3443, #FE3048);
+    font-family: 'proxima-r';
+    background-attachment: fixed;
+    color:#FFF;
+    background-size: 400% 400%;
+
+    
+}
+
+
+
+
+
+.wrapper{
+  @extend %max_w;
+}
+.wrapper-m{
+    @extend %max_w_m;
+}
+.center{
+  text-align: center;
+}
+
+
+
+iframe{
+  width: 100%;
+}
+.col2 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 5vh 0;
+    @media only screen  and (max-width :  $break-mid) {
+       margin : 3vh 0 ;
+    }
+      @include bp-medium{
+        flex-direction: column;
+
+      }
+    @media only screen  and (max-width :  $break-mid) {
+        & > div{
+         padding: $pad 0;
+
+        }
+    }
+
+    & > div {
+    width: 50%;
+    @include bp-medium{
+      width: 100%;
+      }
+    }
+    & > canvas {
+    max-width: 50%;
+    margin-bottom: 8vh;
+    &:nth-child(7),&:nth-child(8){
+      margin-bottom: 0;
+    }
+    @include bp-medium{
+      max-width: 100%;
+    }
+  }
+  &.col2-1{
+    div:nth-child(1){
+      width: 67%;
+      padding-right:$pad;
+      box-sizing:border-box;
+    }
+    div:nth-child(2){
+      width: 33%;
+    }
+  }
+
+}
+
+.col3 {
+    display: flex;
+    flex-wrap: wrap;
+    & > div {
+    width: 33.33%;
+    @include bp-medium{
+      width: 100%;
+      }
+    }
+
+}
+
+.col4{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5vh 0;
+    @media only screen  and (max-width :  $break-mid) {
+       margin : 2vh 0 ;
+    }
+    & > div , & > a{
+    width: 25%;
+    @include bp-medium{
+      width: 100%;
+      }
+    }
+
+}
+.portratt{
+  img{
+    width: 100%;
+  }
+}

@@ -1,0 +1,44 @@
+footer.wrapper {
+   font-size: 0.8em;
+   border-top: 1px solid #fff;
+    padding-top: $pad;
+   margin-top: $pad;
+  h2{
+    font-size: 1em;
+  }
+}
+.socialicons li {
+    display: inline;
+    float: left;
+    margin: 0 8px 0 0;
+    padding: 0;
+}
+.socialicons li a {
+    float: left;
+    height: 30px;
+    width: 30px;
+    -webkit-transition: all 350ms ease-in-out 0s;
+    transition: all 350ms ease-in-out 0s;
+}
+.social-linkedin {
+    background: url("/img/social_linkedin.png") no-repeat scroll 5px 5px #444;
+}
+.social-twitter {
+    background: url("/img/social_twitter.png") no-repeat scroll 5px 5px #444;
+}
+.social-soundcloud {
+    background: url("/img/social_soundcloud.png") no-repeat scroll 5px 5px #444;
+}
+.socialicons li a:hover {
+    -webkit-transition: all 50ms ease-in-out 0s;
+    transition: all 50ms ease-in-out 0s;
+}
+.social-linkedin:hover {
+    background-color: #3B5998;
+}
+.social-twitter:hover {
+    background-color: #22B1E5;
+}
+.social-soundcloud:hover {
+    background-color: #FF7100;
+}
