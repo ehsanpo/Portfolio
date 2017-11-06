@@ -18,12 +18,16 @@ class Skills extends React.Component {
 
   constructor(props) {
     super(props);
-        this.state = {
-      chart_data_state:chart_data.dataALL
-    };
+
     console.log('const')
     console.log(chart_data);
     chart_data.dataALL2 = chart_data.dataALL;
+
+    chart_data.dataALL2.labels = ['changed', "changed"];
+
+    this.state = {
+      chart_data_state:chart_data.dataALL
+    };
 
     this.handleClick = this.handleClick.bind(this);
 
@@ -104,9 +108,9 @@ switch (chart_op) {
                   Overall
               </button>
               <div className="radarholder">
-                  <Radar data={ this.state.chart_data_state }  options={chart_data.dataOptions }/>
+                  
               </div>
-
+              <div dataext={ this.state.chart_data_state } ></div>
 
                
               </div> 
