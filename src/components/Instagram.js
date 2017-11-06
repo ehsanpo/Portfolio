@@ -24,7 +24,7 @@ class Instagram extends React.Component {
       accessToken:token,
       resolution: 'low_resolution',
       sortBy: 'most-recent',
-      limit: 4,
+      limit: 5,
       filter: item =>
         item.caption && item.caption.text
           ? ((item.short_caption = item.caption.text),

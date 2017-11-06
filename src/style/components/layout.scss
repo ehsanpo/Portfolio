@@ -64,9 +64,13 @@ iframe{
     }
   }
   &.col2-1{
+    margin-top: 0;
+    h1{
+      margin-top: 0;
+    }
     div:nth-child(1){
       width: 67%;
-      padding-right:$pad;
+      padding-right: 48px;
       box-sizing:border-box;
     }
     div:nth-child(2){
@@ -107,4 +111,11 @@ iframe{
   img{
     width: 100%;
   }
+}
+
+.radarholder{
+max-width:150%;
+width:150% !important;
+height: auto !important;
+
 }

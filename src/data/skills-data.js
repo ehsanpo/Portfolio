@@ -31,13 +31,25 @@ const options = {
 
 
 };
-let chart_data; 
-
-export default chart_data = {
+const chart_data = {
 dataOptions :options,
+dataALL:{
+    labels: ['Front-End', 'Backend', 'Devop', 'Design'],
+
+    datasets: [{
+       label: 'Overall',
+        data: [10, 10, 8, 8],
+        pointBackgroundColor: "rgba(254, 48, 72, 1)",
+        pointHoverRadius: 5,
+        borderWidth: 1,
+        fill:true,
+        scaleStartValue: 0,
+        backgroundColor:bgcolor,
+        borderColor:borderColor,
+    }]
+},
 dataFE:{
     labels: ['HTML', 'CSS', 'Javascript', 'Performence', 'Buid system', 'Angular', 'React'],
-
     datasets: [{
        label: 'Front-End',
         data: [10, 10, 10, 10, 8, 7, 8],
@@ -96,5 +108,8 @@ dataDevop: {
     }]
 }
 }
+
+
+export default chart_data;
 
 

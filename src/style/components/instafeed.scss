@@ -3,18 +3,22 @@
     flex-wrap: wrap;
     .instafeed__item{
       position: relative;
+
       &:hover .instafeed__item__overlay{
         opacity: 1;
         bottom: 6px;
+
       }
     }
     .instafeed__item__overlay {
       display: block;
       position: absolute;
       padding: $pad;
-      background: rgba(255,255,255,0.8);
-      bottom: 9px;
+      background: rgba(46,52,67,0.8);
+      bottom: -9px;
       opacity: 0;
+       width: 100%;
+       box-sizing: border-box;
       transition: $transition;
     }
   img{

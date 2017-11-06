@@ -2,12 +2,12 @@
 .project{
   border-radius: 4px;
   .col2{
-      background: rgba(253,253,253,01);
-       color: #010101;
+     background: #2e3443;
   }
 
   .long_desc{
     padding: 4vh 6vw 0;
+    width: 100%;
   }
 
     .col2 > div:first-child >{
@@ -35,7 +35,7 @@
     display: none;
   }
   h2{
-    font-size: 4vw;
+    font-size: 3vw;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-family: 'lingua-r';

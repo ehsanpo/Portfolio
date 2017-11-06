@@ -121,16 +121,16 @@ class Project  extends React.Component {
          <div className="col2">
            <div>
                 <h2 ref="title">{client.name}</h2>
+                 
+                <div ref="desc" >{client.description} </div>
                 <div className="role" ref="role">{client.role}</div>
                 <div className="stack" ref="stack">{client.stack}</div>
                 <div ref="images">
                 <a  href={ client.website }>{ client.website }</a>
+
                 </div>
            </div>
-           <div ref="desc" >
-             {client.description} <br />
-             
-           </div>
+          <div></div>
            <div ref="long_desc" className="long_desc" >
              {client.long_desc} <br />
              
