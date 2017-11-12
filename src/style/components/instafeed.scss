@@ -20,6 +20,9 @@
        width: 100%;
        box-sizing: border-box;
       transition: $transition;
+       @include bp-small{
+      display: none;
+      }
     }
   img{
     width: 100%;

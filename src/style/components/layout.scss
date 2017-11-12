@@ -41,14 +41,14 @@ iframe{
     @media only screen  and (max-width :  $break-mid) {
         & > div{
          padding: $pad 0;
-
+        box-sizing: border-box;
         }
     }
 
     & > div {
     width: 50%;
     @include bp-medium{
-      width: 100%;
+      width: 100% 
       }
     }
     & > canvas {
@@ -73,6 +73,13 @@ iframe{
     }
     div:nth-child(2){
       width: 33%;
+    }
+    @include bp-small{
+     & > div{
+        width: 100%!important;
+        padding:0!important ;
+      }
+     
     }
   }
 

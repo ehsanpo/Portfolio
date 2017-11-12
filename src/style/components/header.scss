@@ -1,5 +1,8 @@
 header{
   padding-top: 4vh;
+    @include bp-small{
+      padding-top: 16px !important;
+  }
   &.wrapper{
     margin-bottom: 5vh;
   }
@@ -34,10 +37,6 @@ header{
     margin: 0 5px;
     padding: 0 10px;
     transition: $transition;
-    @include bp-medium{
-      font-size:0.7em;
-    
-    }
     &.active{
 
     color: #fff;

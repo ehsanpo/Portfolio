@@ -8,6 +8,10 @@
   .long_desc{
     padding: 4vh 6vw 0;
     width: 100%;
+    box-sizing: border-box;
+    @include bp-small{
+      padding:0;
+    }
   }
 
     .col2 > div:first-child >{
