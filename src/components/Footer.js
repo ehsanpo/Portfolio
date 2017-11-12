@@ -17,7 +17,7 @@ class FooterComp extends React.Component {
         </div>
         <div>
           <h2>Contact info</h2>
-          <a target="_blank" href="mailto:hi@ehsan-pourhadi.com"> hi@ehsan-pourhadi.com </a><br />
+          <a target="_blank" href="mailto:ehsan.po@gmail.com"> ehsan.po@gmail.com </a><br />
           072 006 27 97
 
         </div>
@@ -25,12 +25,12 @@ class FooterComp extends React.Component {
           <h2>About this site</h2>
           <p>This is the portfolio of Ehsan Pourhadi.
           Developer, producer &amp; graphic desginer based in Malmö, Sweden.
+          The sites is build with React, React-Static, AWS API Gateway and AWS Dynamo DB.
           </p>
         </div>
       </footer>
       )
   }
-
 }
 
 export default FooterComp;

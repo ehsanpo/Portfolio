@@ -30,7 +30,7 @@ class Award extends React.Component {
           }
 
  }
-  revealFx (el, i,reveal) {
+revealFx (el, i,reveal) {
 
         let rev =[];
         let direction = 'tb';
@@ -52,10 +52,7 @@ class Award extends React.Component {
         else{
           this.setState({rev:rev[i]})  ;
         }
-
-      
-    }
-
+  }
 
   handleClick(){
    const rev = this.state.rev;
@@ -71,20 +68,14 @@ class Award extends React.Component {
                   contentEl.style.opacity = 0;
 
                 }
-                
               }
-
             );
   
-
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
     }));
 
-
- 
-
- }
+  }
 
   render(){
 

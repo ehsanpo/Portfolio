@@ -44,7 +44,7 @@ class Project  extends React.Component {
           for (ref in this.refs) {
             i++
             node = this.refs[ref];
-            if (i <= 3) {
+            if (i >= 3) {
               
               this.revealFx(node,i,true);
             }
@@ -143,7 +143,7 @@ class Project  extends React.Component {
             <iframe type="text/html" width="640" height="675" src={ "https://www.youtube.com/embed/" +  client.top_video} frameBorder="0"></iframe>
             }
               {client.img.map(function(image, i){
-                return <img  src={"/img/" +  image} />
+                return <img key={i}  src={"/img/" +  image} />
                })}
             { client.end_video &&
             <iframe type="text/html" width="640" height="675" src={ "https://www.youtube.com/embed/" +  client.end_video} frameBorder="0"></iframe>

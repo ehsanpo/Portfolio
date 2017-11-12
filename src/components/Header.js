@@ -8,7 +8,7 @@ class HeaderComp extends React.Component {
     return(
             <header className="wrapper center">
                 <NavLink exact to="/" activeClassName="active-logo" ><img width="140" src={logo} alt="Ehsan Pourhadi" className="logo" /></NavLink>
-                <h1>Ehsan Pourhadi  <span>Creative Developer</span> </h1>
+                <h1>Ehsan Pourhadi  <span>Web Developer <i className="red">/</i> Music Producer <i className="red">/</i> Problem Solver</span> </h1>
                 <nav>
                     <ul>
                         <li>

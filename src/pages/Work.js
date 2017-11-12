@@ -3,15 +3,11 @@ import React from 'react'
 import { getRouteProps, Link, NavLink} from 'react-static'
 import Project from 'components/Project'
 
-
-
 class ProjectList_Singel  extends React.Component {
   constructor(props) {
     super(props);
-
-
-  const type  = this.props.slug 
-  const posts = this.props.posts
+    const type  = this.props.slug 
+    const posts = this.props.posts
 
 
 
@@ -27,12 +23,8 @@ class ProjectList_Singel  extends React.Component {
         <Project client={post} key={post.name} slug="singel" />
      </div>  
 
-)
-
+    )
   }
 }
 
-
-
 export default getRouteProps(ProjectList_Singel)
-

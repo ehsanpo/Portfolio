@@ -4,11 +4,9 @@ var _instafeed = require('instafeed.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var _instafeed2 = _interopRequireDefault(_instafeed);
-
 const instafeedTarget = 'instafeed';
 
 import dotenv from "../../env";
-
 
 const token = dotenv.INSTA_TOKEN;
 
@@ -24,7 +22,7 @@ class Instagram extends React.Component {
       accessToken:token,
       resolution: 'low_resolution',
       sortBy: 'most-recent',
-      limit: 5,
+      limit: 4,
       filter: item =>
         item.caption && item.caption.text
           ? ((item.short_caption = item.caption.text),
@@ -53,9 +51,6 @@ class Instagram extends React.Component {
     this.run_insta();
 
    }
-
-
-
   render () {
 
     return <div id={instafeedTarget} />
