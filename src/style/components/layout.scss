@@ -8,11 +8,9 @@ body{
 
     
 }
-
-
-
-
-
+.red{
+  color:$red;
+}
 .wrapper{
   @extend %max_w;
 }
@@ -117,5 +115,24 @@ iframe{
 max-width:150%;
 width:150% !important;
 height: auto !important;
+left: -30%;
+position: relative;
 
 }
+.radar-right{
+  overflow: hidden;
+
+}
+button {
+    border: 1px solid red;
+    padding: 8px;
+    color: #aaa;
+    border-radius: 3px;
+    margin: 3px;
+    background-color: #2e3443;
+    font-size: 14px;
+    &.active, &.Overall {
+    color: $red;
+  }
+}
+

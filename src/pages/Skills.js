@@ -1,16 +1,44 @@
-import React from 'react'
-console.log('top')
-console.log(chart_data);
+import React from 'react';
+import { getRouteProps, Link, NavLink} from 'react-static';
 
-
-import chart_data from '../data/skills-data';
 import {Radar} from 'react-chartjs-2';
 import { defaults } from 'react-chartjs-2';
 defaults.global.defaultFontColor = "rgba(255,255, 255, 1)";
 
-//chart_data.dataALL2 = chart_data.dataALL;
-console.log('outer')
-console.log(chart_data);
+const bgcolor= "rgba(254, 48, 72, 0.2)";
+const borderColor = "rgb(254, 255, 255)";
+
+const options = {
+
+    scale: {
+
+    ticks:  {
+        showLabelBackdrop: true,
+        backdropColor: "rgba(255,255,255,1)",
+        fontColor: "#ff0000",
+        backgroundColor: "#000000",
+        beginAtZero: true,
+        min: 0,
+        max: 10,
+        stepSize: 2},
+    pointLabels: {fontSize: 13,fontFamily: 'lingua-r'},
+    gridLines:{color:"rgba(255,255,255,0.7)"}
+
+
+
+    },
+    pointLabelFontColor : "rgba(255,255,255,1",
+
+    legend: {
+        labels: {
+            fontColor: "white",
+        }
+    },
+    angleLines:{color: "white"}
+
+
+
+};
 
 
 class Skills extends React.Component {
@@ -19,107 +47,92 @@ class Skills extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log('const')
-    console.log(chart_data);
-    chart_data.dataALL2 = chart_data.dataALL;
+    const return_array = this.chart_data_maker();
 
-    chart_data.dataALL2.labels = ['changed', "changed"];
-
-    this.state = {
-      chart_data_state:chart_data.dataALL
+     this.state = {
+      chart_data:return_array['Overall']
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.chart_data_maker= this.chart_data_maker.bind(this);
 
   }
 
+handleClick(chart_op,e){
 
-  handleClick(chart_op){
+    const  return_array = this.chart_data_maker();  
+    var list = document.getElementsByTagName("button");
+    for (var i = 0; i < list.length; i++) {
+      list[i].classList.remove("active" , "Overall");
 
-
-let chart_data_load  ;
-
-switch (chart_op) {
-  case 'FE':
-    chart_data_load= chart_data.dataFE;
-    break;
-  case 'BE':
-    chart_data_load= chart_data.dataBE;
-    break;
-  case 'DE':
-    chart_data_load= chart_data.dataDesign;
-    break;
-  case 'DEV':
-     chart_data_load = chart_data.dataDevop;
-    break;
-  default:
-    chart_data_load =chart_data.dataALL2;
-
-}
-
-
-     this.setState({
-     chart_data_state: chart_data_load
+    
+    }
+    e.target.classList.add("active");
+      
+    this.setState({
+     chart_data: return_array[chart_op]
     });
-
-
-     console.log(chart_data);
-
- 
-
-
 
  }
 
+chart_data_maker(){
+
+    let return_array = [];
+    let slug;
+    let skill;
+
+    for (var i = 0; i < this.props.skills.length; i++) {
+      skill = this.props.skills[i];
+      slug = skill.slug;
+      
+      return_array[slug] = {
+      labels: skill.labels,
+      datasets: [{
+         label: skill.slug,
+          data: skill.data,
+          pointBackgroundColor: "rgba(254, 48, 72, 1)",
+          pointHoverRadius: 5,
+          borderWidth: 1,
+          fill:true,
+          scaleStartValue: 0,
+          backgroundColor:bgcolor,
+          borderColor:borderColor,
+      }]
+      } 
+    }
+  return return_array;
+}
 
   render(){
-
     return(
         <div>
         <h1>Skills</h1>
-            <div>
+        
             <div className="col2 col2-1">
 
               <div>
-              <p>
-                I gained my skills mostly by watching online videos and tutorials. I begin my journey as Front-end developer and moved to working with backend languages like PHP and Node.js. After working professionally as full-stack, I moved forward to Devop And Sysadmin areas.<br />
-                I got my AWS Certified Solutions Architect - Associate in oct 2017 and planning to get my developer and security certification by end of the year.<br />
-                <br />
-                Its hard for me to convey my level of skill in a variety of fields on one page. Therefore the main purpose of the charts are not to show you my overall skill in each program, but rather to display my fluency in comparison to similar systems and programs. So that you can get an picture of my strongest sides.
+                <p>
+                  { this.props.SkillsPage.description } 
                 </p>
-                <p>I'm a self-taught web developer. I do not have any education in the field but my great interest in Tech Industry pushed me to learn everything on the internet.</p>
-
               </div>
 
-              <div>
-              <button onClick={() => { this.handleClick('FE') }}>
-                  Front-end
-              </button>
-               <button onClick={() => { this.handleClick('BE') }}>
-                  backend
-              </button>
-               <button onClick={() => { this.handleClick('DE') }}>
-                  Design
-              </button>
-              <button onClick={() => { this.handleClick('DEV') }}>
-                  Devop
-              </button>
-                 <button onClick={() => { this.handleClick('ALL') }}>
-                  Overall
-              </button>
-              <div className="radarholder">
-                  
-              </div>
-              <div dataext={ this.state.chart_data_state } ></div>
-
-               
+              <div className="radar-right">
+                  {this.props.skills.map( skill => (
+                     
+                     <button className={skill.slug} onClick={(e) => { this.handleClick(skill.slug,e) }} key={skill.slug}> {skill.slug} </button> 
+                  ))}
+                  <div className="radarholder">
+                       <Radar data={ this.state.chart_data }  options={options}/>
+                  </div>
+                      
+                 
               </div> 
 
 
 
             </div>
             
-            </div>
+          
         </div>
 
       )
@@ -129,4 +142,4 @@ switch (chart_op) {
 
 }
 
-export default Skills;
+export default getRouteProps(Skills);

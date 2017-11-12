@@ -1,12 +1,24 @@
 import React from 'react'
-import { getSiteProps } from 'react-static'
-
+import { getRouteProps } from 'react-static'
 import AwardList from '../components/AwardList'
+import { Prefetch } from 'react-static'
 
-export default getSiteProps(() => (
-	<div className="about wrapper-m">
-		I’m Ehsan Pourhadi, A Web developer, Designer and Producer providing digital solutions. I’m based In Malmö, Sweden and currently work at <a href="http://gutsglory.se/">Guts & Glory</a>, creating valuable websites & digital solutions.<br /><br />
-		<AwardList />
 
-	</div>
-))
+export default getRouteProps(
+	
+	class Home extends React.Component {
+		render(){
+			<Prefetch path='/work' />
+			return(
+				<div className="about wrapper-m">
+					<p>
+						{ this.props.HomePage.description } 
+					</p>
+					<AwardList />
+				</div>
+
+			)
+		}
+	}
+);
+
