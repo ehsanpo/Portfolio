@@ -19,3 +19,6 @@ yarn-debug.log*
 yarn-error.log*
 env.js
 package-lock.json
+Iconr
+src/fonts
+public/fonts
